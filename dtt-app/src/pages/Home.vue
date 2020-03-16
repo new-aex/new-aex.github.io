@@ -54,7 +54,9 @@ export default Vue.extend({
 <style scoped>
 #home {
   width: 100%;
-  /* background-color; */
+  background-color:lightgrey;
+  /* background-image: url("/bg.png");;
+  background-attachment: fixed; */
 }
 
 .date {

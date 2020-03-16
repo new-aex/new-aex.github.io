@@ -78,4 +78,9 @@ export default Vue.extend({
   color: #42b983;
 } */
 
+a:link, a:visited {
+  color: black;
+  /* font-family: serif; */
+}
+
 </style>

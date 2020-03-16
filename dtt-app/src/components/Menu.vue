@@ -1,7 +1,7 @@
 <template>
 <div id="menu">
   <ul>
-    <!-- <img src="https://pbs.twimg.com/media/ETLOsfkUMAA_uag?format=png&name=medium"></img> -->
+    <img src="aex-01.png"></img>
     <li>
       <router-link to="/">new Airtime Experiment Index</router-link>
     </li>

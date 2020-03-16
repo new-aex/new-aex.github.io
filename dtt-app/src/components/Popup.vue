@@ -5,7 +5,7 @@
     <p>by {{ item.initiator }}</p>
     <p>location: <a href="item.stream_or_page_link">{{ item.stream_or_page_link }}</a></p>
     <p><br>{{ item.description }}</p>
-    <p><br>donation link: {{ item.patreon_paypal_link }}</p>
+    <p><br>donation link: <a href="item.patreon_paypal_link">{{ item.patreon_paypal_link }}</a></p>
     <img :src="item.image"/>
   </div>
 </template>
