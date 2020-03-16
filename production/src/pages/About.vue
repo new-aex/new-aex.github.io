@@ -21,7 +21,7 @@ p {
 
 span {
   font-size:18px;
-  color:blue;
+  color:#7FD3FF;
   font-family: 'Kosugi', sans-serif;
 }
 </style>
