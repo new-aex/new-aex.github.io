@@ -54,9 +54,10 @@ export default Vue.extend({
 <style scoped>
 #home {
   width: 100%;
-  background-color:lightgrey;
-  /* background-image: url("/bg.png");;
-  background-attachment: fixed; */
+  background-color:white;
+  /* background-image: url("/aex-02.png");;
+  background-attachment: fixed;
+  background-position: center; /* Center the image */
 }
 
 .date {

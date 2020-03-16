@@ -1,9 +1,12 @@
 <template>
 <div id="menu">
   <ul>
-    <img src="aex-01.png"></img>
+    <img src="aex-01.png"/>
     <li>
-      <router-link to="/">new Airtime Experiment Index</router-link>
+      <p>new Airtime Experiments to be together during physical self-isolation</p>
+    </li>
+    <li>
+      <router-link to="/">Index of all events coming up</router-link>
     </li>
     <li>
     <router-link to="/about">About</router-link>
