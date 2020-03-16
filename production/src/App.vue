@@ -32,8 +32,7 @@ export default Vue.extend({
   mounted() {
     var self = this;
     axios
-    // .get('https://ckan.dataplatform.nl/dataset/c7e9cb41-3b2d-47a4-9f1e-60ee7708f561/resource/ed7d5778-c890-4f4e-bfc3-048923761ace/download/vleermuisroutes.json')
-    .get('events.json')
+    .get('http://dev.oort.network/new-aex/wp-json/api/all')
     .then(response => {
       self.api_data = response.data.events
       self.selectData(self.api_data);
