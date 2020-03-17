@@ -1,52 +1,45 @@
 <template>
   <div id="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-    <ul>
-      <!-- <li v-for="item in items" :key="item.message">
-      {{ item.message }}
-      </li> -->
-      <!-- make a for loop per date? -->
-      <div class="date">today</div>
-      <DataItem v-for="item in selectedData" :key="item.name" :item="item" @data-click="showDetails(item)"></DataItem>
-      <div class="date">{{ todayDate }}</div>
-      <Popup v-show="popup" :item="this.currentItem"></Popup>
-    </ul>
+      <div class="schedule" v-for="(item, key) in eventsPerDate" :item="item" :key="key">
+        <div class="date">{{key}}</div>
+        <DataItem v-for="event in item" :key="event.id" :event="event" @data-click="showDetails(item)"></DataItem>
+      </div>
+      <!-- <Popup v-show="popup" :item="this.currentItem"></Popup> -->
     <Footer v-show="popup" @back-click="hideDetails()">
     </Footer>
   </div>
 </template>
 
-<script>
+<script lang="javascript">
 // @ is an alias to /src
 import Vue from 'vue'
 import DataItem from '@/components/DataItem.vue'
 import Popup from '@/components/Popup.vue'
 import Footer from '@/components/Footer.vue'
+// import Dictionary from 'vue-router/types/router'
 
 
 export default Vue.extend({
-  name: 'Home',
+  name: 'Timetable',
   data() {
     return {
       currentItem: {},
-      popup: false
+      popup: false,
     }
   },
   components: {
     DataItem, Popup, Footer
   },
-  props: 
-    ['selectedData', 'todayDate'],
+  props: ['eventsPerDate'],
   methods: {
     showDetails(item) {
       this.currentItem = item
       this.popup = true
-
     },
     hideDetails() {
       this.currentItem = {}
       this.popup = false
-    }
+    },
   }
 });
 </script>
@@ -54,7 +47,6 @@ export default Vue.extend({
 <style scoped>
 #home {
   width: 100%;
-  background-color:lightgrey;
   /* background-image: url("/aex-02.png");;
   background-attachment: fixed;
   background-position: center; /* Center the image */
@@ -69,11 +61,9 @@ export default Vue.extend({
   padding:5px;
 }
 
-ul {
-  /* position: relative; */
+.schedule {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* box-sizing: border-box; */
 }
 </style>

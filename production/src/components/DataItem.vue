@@ -1,10 +1,10 @@
 <template>
   <div class="data_item" @click="$emit('data-click')">
-    <p>{{ item.name }}</p>
-    <p>{{ item.time_start }}</p>
-    <p>by {{ item.initiator }}</p>
+    <p>{{ event.name }}</p>
+    <p>{{ event.time_start }}</p>
+    <p>by {{ event.initiator }}</p>
     <div id="container">
-    <img :src="item.image"/>
+    <img :src="event.image.url"/>
     </div>
   </div>
 </template>
@@ -12,7 +12,7 @@
 <script lang="ts">
 export default {
   name: 'DataItem',
-  props: ['item']
+  props: ['event']
 }
 </script>
 
@@ -32,8 +32,8 @@ p {
 #container img {
   width:100%;
   height:100%;
-  object-fit: contain;
-  object-position: left top;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .data_item {

@@ -1,18 +1,18 @@
 <template>
 <div id="menu">
   <ul>
-    <img src="aex-01.gif"/>
-    <li>
+    <!-- <img src="aex-01.gif"/> -->
+    <!-- <li>
       <p>an index of new Airtime Experiments to be together during physical self-isolation</p>
+    </li> -->
+    <li>
+      <router-link to="/">timetable</router-link>
     </li>
     <li>
-      <router-link to="/">Show all events</router-link>
+    <router-link to="/about">about</router-link>
     </li>
     <li>
-    <router-link to="/about">About</router-link>
-    </li>
-    <li>
-      <a href="http://dev.oort.network/streams/" target="_blank">Submit your event</a>
+      <a href="https://dev.oort.network/new-aex/" target="_blank">+ add event</a>
     </li>
   </ul>
 </div>
@@ -34,22 +34,30 @@ img {
   /* position:absolute; */
   left:0;
   height:50px;
-
 }
 
 #menu {
   position: sticky;
   top: 0;
-  background-color: white;
+  /* background-color: white; */
   z-index:100;
 }
 
 ul {
   box-sizing:border-box;
   width:100%;
-  /* height:vh; */
-  border: 1px solid black;
   padding: 5px;
+}
+
+ul li {
+  /* width:30%; */
+  display:inline-block;
+  background-color: red;
+  text-align: center;
+  border-radius:25px;
+  padding:12px;
+  margin:3px;
+  
 }
 
 </style>
