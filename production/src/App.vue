@@ -25,7 +25,7 @@ export default Vue.extend({
   mounted() {
     var self = this;
     axios
-    .get('http://dev.oort.network/new-aex/wp-json/api/events')
+    .get('https://dev.oort.network/new-aex/wp-json/api/events')
     .then(response => {
       self.api_data = response.data;
       self.sortEvents(self.api_data, self.events_per_date);
