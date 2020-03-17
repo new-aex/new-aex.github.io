@@ -26,11 +26,13 @@ export default Vue.extend({
 <style scoped>
 #popup {
   position:absolute;
+  overflow-wrap: normal;
   top:0;
   height:100%;
   width:100%;
   padding: 60px 5px 5px 5px;
   background-color: white;
+  overflow-x:hidden;
 }
 
 img {

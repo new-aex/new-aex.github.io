@@ -2,9 +2,9 @@
 <div id="menu">
   <ul>
     <!-- <img src="aex-01.gif"/> -->
-    <li>
+    <!-- <li>
       <p>new AEX Index</p>
-    </li>
+    </li> -->
     <li>
       <router-link to="/">timetable</router-link>
     </li>
