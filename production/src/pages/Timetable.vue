@@ -1,23 +1,21 @@
 <template>
-  <div id="home">
+  <div id="timetable">
       <div class="schedule" v-for="(item, key) in eventsPerDate" :item="item" :key="key">
         <div class="date">{{key}}</div>
-        <DataItem v-for="event in item" :key="event.id" :event="event" @data-click="showDetails(item)"></DataItem>
+        <DataItem v-for="event in item" :key="event.id" :event="event" @data-click="showDetails(event)"></DataItem>
       </div>
-      <!-- <Popup v-show="popup" :item="this.currentItem"></Popup> -->
+      <Popup v-show="popup" :event="this.currentItem"></Popup>
     <Footer v-show="popup" @back-click="hideDetails()">
     </Footer>
   </div>
 </template>
 
-<script lang="javascript">
+<script lang="ts">
 // @ is an alias to /src
 import Vue from 'vue'
 import DataItem from '@/components/DataItem.vue'
 import Popup from '@/components/Popup.vue'
 import Footer from '@/components/Footer.vue'
-// import Dictionary from 'vue-router/types/router'
-
 
 export default Vue.extend({
   name: 'Timetable',
@@ -32,9 +30,9 @@ export default Vue.extend({
   },
   props: ['eventsPerDate'],
   methods: {
-    showDetails(item) {
-      this.currentItem = item
-      this.popup = true
+    showDetails(event : Object) {
+      this.currentItem = event;
+      this.popup = true;
     },
     hideDetails() {
       this.currentItem = {}
@@ -45,7 +43,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-#home {
+#timetable {
   width: 100%;
   /* background-image: url("/aex-02.png");;
   background-attachment: fixed;

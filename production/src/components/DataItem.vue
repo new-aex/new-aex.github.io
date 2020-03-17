@@ -10,10 +10,12 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from 'vue'
+
+export default Vue.extend({
   name: 'DataItem',
-  props: ['event']
-}
+  props: [ 'event' ],
+});
 </script>
 
 <style scoped>

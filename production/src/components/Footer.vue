@@ -21,7 +21,7 @@ export default Vue.extend({
   box-sizing:border-box;
   position:fixed;
   width:100%;
-  /* height:20vh; */
+  height:50px;
   bottom:0;
   border: 1px solid black;
   background-color: white;
@@ -31,5 +31,7 @@ export default Vue.extend({
 
 p {
   cursor:pointer;
+  padding:8px;
+  text-align:center;
   }
 </style>

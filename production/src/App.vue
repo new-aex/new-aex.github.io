@@ -51,18 +51,16 @@ export default Vue.extend({
           if (!perDate.hasOwnProperty(formatted_event_date)) {
             // make a new object for new date
             perDate[formatted_key] = [];
-            window.console.log("new date");
+            // window.console.log("new date");
           } else {
             // date is already in date array, don't make a new entry
-            window.console.log("existing date");
+            // window.console.log("existing date");
           }
           // in all cases, add event to corresponding day array
           perDate[formatted_key].push(data[i]);
         }
       }
-      window.console.log(perDate);
-      self.$set(self.events_per_date, perDate);
-      
+      self.$set(self.events_per_date, perDate);    
     }
   }
 });
@@ -77,6 +75,8 @@ export default Vue.extend({
 
 #app {
   /* font-family: 'Amiri', serif; */
+  width:100%;
+  height:100%;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 18px;
   -webkit-font-smoothing: antialiased;

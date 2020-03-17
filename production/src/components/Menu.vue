@@ -2,9 +2,9 @@
 <div id="menu">
   <ul>
     <!-- <img src="aex-01.gif"/> -->
-    <!-- <li>
-      <p>an index of new Airtime Experiments to be together during physical self-isolation</p>
-    </li> -->
+    <li>
+      <p>new AEX Index</p>
+    </li>
     <li>
       <router-link to="/">timetable</router-link>
     </li>
