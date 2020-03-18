@@ -3,9 +3,9 @@
     <p>{{ event.name }}</p>
     <p>{{ event.time_start }} CET</p>
     <p v-if="event.initiator">by {{ event.initiator }}</p>
-    <p>location: <a target="_blank" href="event.streaming">{{ event.streaming }}</a></p>
+    <p>location: <a target="_blank" v-bind:href="event.streaming">{{ event.streaming }}</a></p>
     <div v-if="event.description"><br><div v-html="event.description"></div></div>
-    <p v-if="event.donate"><br>donation link: <a target="_blank" href="event.donate">{{ event.donate }}</a></p>
+    <p v-if="event.donate"><br>donation link: <a target="_blank" v-bind:href="event.donate">{{ event.donate }}</a></p>
     <img v-if="event.image" :src="event.image.url"/>
   </div>
 </template>
