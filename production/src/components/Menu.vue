@@ -12,7 +12,7 @@
     <router-link to="/archive">archive</router-link>
     </li>
     <li>
-    <router-link to="/about">about</router-link>
+    <router-link to="/about">?</router-link>
     </li>
     <li>
       <router-link to="/add">+ add event</router-link>

@@ -59,12 +59,17 @@ p {
 }
 
 .playing{
-  background-color: red;  
+  border: 1px solid red; 
+  background-color: lightgrey;
+}
+
+.playing p { 
+  color: red;
 }
 
 
 .ended{
-  background-color: lightslategray;
+  /* background-color: lightslategray; */
 }
 
 @media only screen and (max-width: 600px) {
