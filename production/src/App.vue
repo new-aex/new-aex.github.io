@@ -37,7 +37,7 @@ export default Vue.extend({
     })
 
     setInterval(() => {
-      this.time = moment().format('YYYYMMDDhhmm')
+      this.time = moment().format('YYYYMMDDHHmm')
     }, 1000);
   }
 });
