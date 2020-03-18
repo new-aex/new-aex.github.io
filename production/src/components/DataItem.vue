@@ -1,12 +1,14 @@
 <template>
-  <div :class="{ playing: event.dateUnix_start <= time && event.dateUnix_end > time, ended: event.dateUnix_start < time && event.dateUnix_end < time }" class="data_item"  @click="$emit('data-click')">
+  <RouterLink :to="type == 'archive' ? `/archive/event/${event.id}` : `/event/${event.id}` " :class="{ playing: event.dateUnix_start <= time && event.dateUnix_end > time, ended: event.dateUnix_start < time && event.dateUnix_end < time }" class="data_item">
     <p>{{ event.name }}</p>
+    {{type}}
+
     <p>{{ event.time_start }} CET</p>
     <p v-if="event.initiator">by {{ event.initiator }}</p>
     <div id="container" v-if="event.image">
       <img :src="event.image.url"/>
     </div>
-  </div>
+  </RouterLink>
 </template>
 
 <script lang="ts">
@@ -15,13 +17,7 @@ import moment from 'moment'
 
 export default Vue.extend({
   name: 'DataItem',
-  props: [ 'event', 'time' ],
-  data() {
-    return {
-      // test: moment(event.time_start, "DD-MM-YYYY").fromNow(),
-      // tomorrowDate: moment().add(1, 'days').format('DD-MM-YYYY')
-    }
-  },
+  props: [ 'event', 'time', 'type' ],
 });
 </script>
 
@@ -59,6 +55,7 @@ p {
   background-color:white;
   border-radius:12px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .playing{

@@ -1,14 +1,12 @@
 <template>
   <div id="timetable">
-      <div class="scheduleWrap" v-for="(item, key) in events" :item="item" :key="key">
-        <div class="schedule" v-if="item.key >= todayDateKey">
-          <div class="date">{{todayDate === item.date ? 'Today' : tomorrowDate === item.date ? 'Tomorrow' : item.date  }}</div>
-          <DataItem v-for="event in item.posts" :key="event.id" :event="event" @data-click="showDetails(event)" :time="time"></DataItem>
-        </div>
+    <div class="scheduleWrap" v-for="(item, key) in events" :item="item" :key="key">
+      <div class="schedule" v-if="item.key >= todayDateKey">
+        <div class="date">{{todayDate === item.date ? 'Today' : tomorrowDate === item.date ? 'Tomorrow' : item.date  }}</div>
+        <DataItem v-for="event in item.posts" :key="event.id" :event="event" @data-click="showDetails(event)" :time="time"></DataItem>
       </div>
-      <Popup v-show="popup" :event="this.currentItem"></Popup>
-    <Footer v-show="popup" @back-click="hideDetails()">
-    </Footer>
+    </div>
+    <router-view :event="currentItem" :type="type"></router-view>
   </div>
 </template>
 
@@ -16,33 +14,42 @@
 // @ is an alias to /src
 import Vue from 'vue'
 import DataItem from '@/components/DataItem.vue'
-import Popup from '@/components/Popup.vue'
-import Footer from '@/components/Footer.vue'
 import moment from 'moment'
 
 export default Vue.extend({
   name: 'Timetable',
   data() {
     return {
+      type: 'timetable',
       currentItem: {},
-      popup: false,
       todayDateKey: moment().format('YYYYMMDD'),
       todayDate: moment().format('DD-MM-YYYY'),
       tomorrowDate: moment().add(1, 'days').format('DD-MM-YYYY')
     }
   },
   components: {
-    DataItem, Popup, Footer
+    DataItem,
   },
   props: ['events', 'time'],
+  mounted() {
+    this.checkCurrentItem();
+  },
+  beforeUpdate() {
+    this.checkCurrentItem();
+  },
   methods: {
-    showDetails(event : Object) {
-      this.currentItem = event;
-      this.popup = true;
-    },
-    hideDetails() {
-      this.currentItem = {}
-      this.popup = false
+    checkCurrentItem() {
+      let events = this.events;
+      for (let index = 0; index < events.length; index++) {
+        const element = events[index];
+        for (let indexEvent = 0; indexEvent < element.posts.length; indexEvent++) {
+          const event = element.posts[indexEvent];
+          if(event.id === parseInt(this.$route.params.id)){
+            this.currentItem = event;
+            this.popup = true;
+          }
+        }
+      }
     },
   }
 });

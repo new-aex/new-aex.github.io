@@ -11,7 +11,6 @@ import Menu from '@/components/Menu.vue'
 import axios from 'axios'
 import moment from 'moment'
 
-
 export default Vue.extend({
   name: 'App',
   components: {
@@ -39,6 +38,7 @@ export default Vue.extend({
     setInterval(() => {
       this.time = moment().format('YYYYMMDDHHmm')
     }, 1000);
+    
   }
 });
 </script>
