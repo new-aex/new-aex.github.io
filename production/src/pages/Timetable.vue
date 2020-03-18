@@ -46,7 +46,6 @@ export default Vue.extend({
           const event = element.posts[indexEvent];
           if(event.id === parseInt(this.$route.params.id)){
             this.currentItem = event;
-            this.popup = true;
           }
         }
       }
