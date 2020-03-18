@@ -37,24 +37,31 @@ export default Vue.extend({
   methods: {
     sortEvents(data, perDate) {
       var self = this;
-      let today_date = moment();
       // for all events in API
       for (let i = 0; i < data.length; i++) {
         // create two comparable moment objects
+        let today_date = moment();
+        let tomorrow_date = moment().add(1, 'days');
+        // let formatted_today_date = today_date.format('DD-MM-YYYY');
+        // window.console.log(formatted_today_date);
         let event_date = moment(data[i].dates_start, "DD-MM-YYYY");
         var formatted_event_date = event_date.format('DD-MM-YYYY');
         var formatted_key = String(formatted_event_date);
 
-        // if event is today or after today
-        if (event_date.isSameOrAfter(today_date)) {
+        // if event is yet to take place
+        if (event_date.isSameOrAfter(today_date, 'day')) {
+          // if event is today or tomorrow, custom keys
+          if (event_date.isSame(today_date, 'day')) {
+            formatted_key = "today";
+          } else if (event_date.isSame(tomorrow_date, 'day')) {
+            formatted_key = "tomorrow";
+          }
           // if the date is not yet in the date array
           if (!perDate.hasOwnProperty(formatted_event_date)) {
             // make a new object for new date
             perDate[formatted_key] = [];
-            // window.console.log("new date");
           } else {
             // date is already in date array, don't make a new entry
-            // window.console.log("existing date");
           }
           // in all cases, add event to corresponding day array
           perDate[formatted_key].push(data[i]);
