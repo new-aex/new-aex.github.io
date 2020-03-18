@@ -72,7 +72,7 @@ p {
 
 
 .ended{
-  /* background-color: lightslategray; */
+  color:grey;
 }
 
 @media only screen and (max-width: 600px) {
