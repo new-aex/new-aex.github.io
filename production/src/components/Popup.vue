@@ -1,7 +1,7 @@
 <template>
   <div id="popup">
     <p>{{ event.name }}</p>
-    <p>{{ event.time_start }} UTC</p>
+    <p>{{ event.time_start }} CET</p>
     <p v-if="event.initiator">by {{ event.initiator }}</p>
     <p>location: <a target="_blank" href="event.streaming">{{ event.streaming }}</a></p>
     <div v-if="event.description"><br><div v-html="event.description"></div></div>
