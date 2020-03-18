@@ -4,6 +4,7 @@ import Timetable from '../pages/Timetable.vue'
 import About from '../pages/About.vue'
 import Add from '../pages/Add.vue'
 import Archive from '../pages/Archive.vue'
+import Popup from '../components/Popup.vue'
 
 Vue.use(VueRouter)
 
@@ -12,7 +13,13 @@ const routes = [
     path: '/',
     name: 'Timetable',
     component: Timetable,
-    props: true
+    props: true,
+    children: [
+      {
+        path: '/event/:id',
+        component: Popup,
+      },
+    ]
   },
   {
     path: '/about',
@@ -30,8 +37,15 @@ const routes = [
     path: '/archive',
     name: 'Archive',
     component: Archive,
-    props: true
+    props: true,
+    children: [
+      {
+        path: '/archive/event/:id',
+        component: Popup,
+      },
+    ]
   }
+
 ]
 
 const router = new VueRouter({
