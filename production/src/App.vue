@@ -24,7 +24,6 @@ export default Vue.extend({
   mounted() {
     var self = this;
     axios
-    // .get('http://localhost/stream-cms/wp-json/api/main') // local
     .get('https://dev.oort.network/new-aex/wp-json/api/main')
     .then(response => {
       self.about = response.data.about;
