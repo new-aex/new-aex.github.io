@@ -9,6 +9,9 @@
       <router-link to="/">timetable</router-link>
     </li>
     <li>
+    <router-link to="/archive">archive</router-link>
+    </li>
+    <li>
     <router-link to="/about">about</router-link>
     </li>
     <li>

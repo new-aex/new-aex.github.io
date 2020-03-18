@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Menu></Menu>
-    <router-view :events="events" :about="about"/>
+    <router-view :events="events" :about="about" :time="time"/>
   </div>
 </template>
 
@@ -9,6 +9,8 @@
 import Vue from 'vue'
 import Menu from '@/components/Menu.vue'
 import axios from 'axios'
+import moment from 'moment'
+
 
 export default Vue.extend({
   name: 'App',
@@ -18,7 +20,8 @@ export default Vue.extend({
   data() {
     return {
       about: '',
-      events: []
+      events: [],
+      time: moment().format('YYYYMMDDHHmm')
     }
   },
   mounted() {
@@ -28,12 +31,14 @@ export default Vue.extend({
     .then(response => {
       self.about = response.data.about;
       self.events = response.data.events;
-
-      console.log(self.about);
     })
     .catch(error => {
       console.log(error)
     })
+
+    setInterval(() => {
+      this.time = moment().format('YYYYMMDDhhmm')
+    }, 1000);
   }
 });
 </script>

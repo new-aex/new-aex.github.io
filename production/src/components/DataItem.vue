@@ -1,5 +1,5 @@
 <template>
-  <div class="data_item" @click="$emit('data-click')">
+  <div :class="{ playing: event.dateUnix_start <= time && event.dateUnix_end > time, ended: event.dateUnix_start < time && event.dateUnix_end < time }" class="data_item"  @click="$emit('data-click')">
     <p>{{ event.name }}</p>
     <p>{{ event.time_start }} CET</p>
     <p v-if="event.initiator">by {{ event.initiator }}</p>
@@ -11,10 +11,17 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import moment from 'moment'
 
 export default Vue.extend({
   name: 'DataItem',
-  props: [ 'event' ],
+  props: [ 'event', 'time' ],
+  data() {
+    return {
+      // test: moment(event.time_start, "DD-MM-YYYY").fromNow(),
+      // tomorrowDate: moment().add(1, 'days').format('DD-MM-YYYY')
+    }
+  },
 });
 </script>
 
@@ -51,10 +58,16 @@ p {
   padding:5px;
   background-color:white;
   border-radius:12px;
+  cursor: pointer;
 }
 
-.data_item:hover {
-  cursor: pointer;
+.playing{
+  background-color: red;  
+}
+
+
+.ended{
+  background-color: lightslategray;
 }
 
 @media only screen and (max-width: 600px) {

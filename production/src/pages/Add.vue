@@ -1,6 +1,6 @@
 <template>
   <div id="add">
-      <iframe src="http://localhost/stream-cms/"></iframe>
+      <iframe src="https://dev.oort.network/new-aex/"></iframe>
   </div>
 </template>
 

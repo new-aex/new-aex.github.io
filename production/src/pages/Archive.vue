@@ -1,9 +1,9 @@
 <template>
   <div id="timetable">
       <div class="scheduleWrap" v-for="(item, key) in events" :item="item" :key="key">
-        <div class="schedule" v-if="item.key >= todayDateKey">
+        <div class="schedule" v-if="item.key < todayDateKey">
           <div class="date">{{todayDate === item.date ? 'Today' : tomorrowDate === item.date ? 'Tomorrow' : item.date  }}</div>
-          <DataItem v-for="event in item.posts" :key="event.id" :event="event" @data-click="showDetails(event)" :time="time"></DataItem>
+          <DataItem v-for="event in item.posts" :key="event.id" :event="event" @data-click="showDetails(event)"></DataItem>
         </div>
       </div>
       <Popup v-show="popup" :event="this.currentItem"></Popup>
