@@ -15,15 +15,17 @@ export default Vue.extend({
 
 <style scoped>
 #add {
-  width:100%;
-  height:100%;
-  padding: 8px;
+  position: fixed; 
+  right: 0; 
+  bottom: 0; 
+  left: 0;
+  top: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
 }
 
 #add >>> iframe {
-    position: fixed;
-    top:0;
-    left:0;
+    
     width: 100%;
     height: 100%;
     outline: none;
