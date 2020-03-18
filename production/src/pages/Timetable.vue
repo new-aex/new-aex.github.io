@@ -58,6 +58,7 @@ export default Vue.extend({
 
 .date {
   font-family: 'Kosugi', sans-serif;
+  text-transform: lowercase;
   position:relative;
   line-height: 30px;
   height:35px;
