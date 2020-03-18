@@ -1,8 +1,8 @@
 <template>
   <div id="timetable">
-      <div class="schedule" v-for="(item, key) in eventsPerDate" :item="item" :key="key">
-        <div class="date">{{key}}</div>
-        <DataItem v-for="event in item" :key="event.id" :event="event" @data-click="showDetails(event)"></DataItem>
+      <div class="schedule" v-for="(item, key) in events" :item="item" :key="key">
+        <div class="date">{{todayDate === item.date ? 'Today' : tomorrowDate === item.date ? 'Tomorrow' : item.date  }}</div>
+        <DataItem v-for="event in item.posts" :key="event.id" :event="event" @data-click="showDetails(event)"></DataItem>
       </div>
       <Popup v-show="popup" :event="this.currentItem"></Popup>
     <Footer v-show="popup" @back-click="hideDetails()">
@@ -16,6 +16,7 @@ import Vue from 'vue'
 import DataItem from '@/components/DataItem.vue'
 import Popup from '@/components/Popup.vue'
 import Footer from '@/components/Footer.vue'
+import moment from 'moment'
 
 export default Vue.extend({
   name: 'Timetable',
@@ -23,12 +24,14 @@ export default Vue.extend({
     return {
       currentItem: {},
       popup: false,
+      todayDate: moment().format('DD-MM-YYYY'),
+      tomorrowDate: moment().add(1, 'days').format('DD-MM-YYYY')
     }
   },
   components: {
     DataItem, Popup, Footer
   },
-  props: ['eventsPerDate'],
+  props: ['events'],
   methods: {
     showDetails(event : Object) {
       this.currentItem = event;

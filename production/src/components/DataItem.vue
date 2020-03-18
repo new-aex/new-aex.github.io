@@ -2,9 +2,9 @@
   <div class="data_item" @click="$emit('data-click')">
     <p>{{ event.name }}</p>
     <p>{{ event.time_start }}</p>
-    <p>by {{ event.initiator }}</p>
-    <div id="container">
-    <img :src="event.image.url"/>
+    <p v-if="event.initiator">by {{ event.initiator }}</p>
+    <div id="container" v-if="event.image">
+      <img :src="event.image.url"/>
     </div>
   </div>
 </template>

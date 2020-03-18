@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Timetable from '../pages/Timetable.vue'
+import About from '../pages/About.vue'
+import Add from '../pages/Add.vue'
 
 Vue.use(VueRouter)
 
@@ -12,30 +14,15 @@ const routes = [
     props: true
   },
   {
-    path: '/random',
-    name: 'Random',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../pages/Random.vue'),
-    props: true
-  },
-  {
-    path: '/categories',
-    name: 'Categories',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../pages/Categories.vue'),
-    props: true
-  },
-  {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../pages/About.vue'),
+    component: About,
+    props: true
+  },
+  {
+    path: '/add',
+    name: 'Add',
+    component: Add,
     props: true
   }
 ]

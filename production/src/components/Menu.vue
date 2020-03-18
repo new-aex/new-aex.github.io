@@ -12,7 +12,7 @@
     <router-link to="/about">about</router-link>
     </li>
     <li>
-      <a href="https://dev.oort.network/new-aex/" target="_blank">+ add event</a>
+      <router-link to="/add">+ add event</router-link>
     </li>
   </ul>
 </div>
