@@ -66,8 +66,8 @@ export default Vue.extend({
   font-family: 'Kosugi', sans-serif;
   text-transform: lowercase;
   position:relative;
-  line-height: 30px;
-  height:35px;
+  line-height: 53px;
+  height:45px;
   width:100%;
   padding:5px;
 }

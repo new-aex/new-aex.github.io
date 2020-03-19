@@ -63,4 +63,11 @@ ul li {
   
 }
 
+@media only screen and (max-width: 340px) {
+  ul li {
+
+      font-size:16px;
+      padding:9.5px;
+  }
+}
 </style>

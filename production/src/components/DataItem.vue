@@ -54,7 +54,7 @@ p {
   /* flex-grow: 1; */
   width:25%;
   height:24.9vw;
-  border: 1px solid black;
+  border: 2px solid #eeeeee;
   padding:5px;
   background-color:white;
   border-radius:12px;
@@ -73,7 +73,7 @@ p {
 
 
 .ended{
-  color:grey;
+  color:#A0A0A0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -81,6 +81,7 @@ p {
       width:50%;
       height:49.9vw;
       font-size:16px;
+      hyphens: auto;
   }
 }
 
