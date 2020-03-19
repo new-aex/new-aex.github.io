@@ -64,7 +64,7 @@ export default Vue.extend({
   left: 0;
   right: 0;
   overflow: auto;
-  background-color: lightgrey;
+  background-color: #eeeeee;
   /* color: #2c3e50; */
 }
 /* #nav a.router-link-exact-active {

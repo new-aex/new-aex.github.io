@@ -64,7 +64,7 @@ p {
 
 .playing{
   border: 1px solid red; 
-  background-color: lightgrey;
+  background-color:#eeeeee;
 }
 
 .playing p { 
