@@ -1,9 +1,9 @@
 <template>
   <RouterLink :to="type == 'archive' ? `/archive/event/${event.id}` : `/event/${event.id}` " :class="{ playing: event.dateUnix_start <= time && event.dateUnix_end > time, ended: event.dateUnix_start < time && event.dateUnix_end < time }" class="data_item">
-    <p>{{ event.name }}</p>
+    <p class="bold">{{ event.name }}</p>
     {{type}}
 
-    <p>{{ event.time_start }} CET</p>
+    <p class="mono">{{ event.time_start }} CET</p>
     <p v-if="event.initiator">by {{ event.initiator }}</p>
     <div id="container" v-if="event.image">
       <img :src="event.image.url"/>
@@ -24,6 +24,10 @@ export default Vue.extend({
 <style scoped>
 p {
   flex: none;
+}
+
+.mono {
+  font-family: 'Kosugi', sans-serif;
 }
 
 #container {
