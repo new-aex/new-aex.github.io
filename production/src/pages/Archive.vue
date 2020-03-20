@@ -1,6 +1,6 @@
 <template>
   <div id="timetable">
-    <div class="scheduleWrap" v-for="(item, key) in events" :item="item" :key="key">
+    <div class="scheduleWrap" v-for="(item, key) in events.slice().reverse()" :item="item" :key="key">
       <div class="schedule" v-if="item.key < todayDateKey">
         <div class="date">{{todayDate === item.date ? 'Today' : tomorrowDate === item.date ? 'Tomorrow' : item.date  }}</div>
         <DataItem v-for="event in item.posts" :key="event.id" :event="event" :type="type"></DataItem>
