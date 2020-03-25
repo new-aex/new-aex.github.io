@@ -63,7 +63,8 @@ export default Vue.extend({
   bottom: 0;
   left: 0;
   right: 0;
-  overflow: auto;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
   background-color: #eeeeee;
   /* color: #2c3e50; */
 }
