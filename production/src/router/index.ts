@@ -5,6 +5,7 @@ import About from '../pages/About.vue'
 import Add from '../pages/Add.vue'
 import Archive from '../pages/Archive.vue'
 import Popup from '../components/Popup.vue'
+import Random from '../pages/Random.vue'
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,12 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About,
+    props: true
+  },
+  {
+    path: '/random',
+    name: 'Random',
+    component: Random,
     props: true
   },
   {

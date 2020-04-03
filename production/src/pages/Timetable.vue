@@ -39,6 +39,7 @@ export default Vue.extend({
   },
   methods: {
     checkCurrentItem() {
+      console.log(this.events);
       let events = this.events;
       for (let index = 0; index < events.length; index++) {
         const element = events[index];
