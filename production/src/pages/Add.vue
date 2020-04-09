@@ -1,6 +1,6 @@
 <template>
   <div id="add">
-      <iframe src="https://dev.oort.network/new-aex/"></iframe>
+      <iframe src="https://newaex.com/admin/"></iframe>
   </div>
 </template>
 
